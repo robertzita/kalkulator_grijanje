@@ -7,9 +7,10 @@ use grijanje;
 create table bojler (
 sifra int not null primary key auto_increment,
 naziv varchar (100) not null,
-snaga int not null,
-korisnik int not null,
-slika varchar (200) not null
+ucinaknagrijanju int not null,
+ucinaknatoplojvodi int not null,
+slika varchar (200) not null,
+korisnik int not null
 );
 
 
@@ -49,6 +50,7 @@ email varchar (150)
 
 create table servis (
 sifra int not null primary key auto_increment,
+naziv varchar (100) not null,
 serviser int not null,
 bojler int not null,
 cijena decimal (8,2) not null,
