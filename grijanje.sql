@@ -11,7 +11,7 @@ ucinaknagrijanju decimal (4,2) not null,
 ucinaknatoplojvodi decimal (4,2) not null,
 slika varchar (200) not null,
 korisnik int not null
-);
+)engine=innodb;
 
 
 create table korisnik (
@@ -24,8 +24,7 @@ postanskibroj int not null,
 email varchar (200) not null,
 brojmobitela varchar (20) not null,
 serviser int not null
-);
-
+)engine=innodb;
 create table radijator (
 sifra int not null primary key auto_increment,
 naziv varchar (100) not null,
@@ -36,7 +35,7 @@ snaga int  not null,
 zapremnina decimal (3,1) not null,
 bojler int not null,
 slika varchar (200) not null
-);
+)engine=innodb;
 
 create table serviser (
 sifra int not null primary key auto_increment,
@@ -45,7 +44,7 @@ adresa varchar (100) not null,
 postanskibroj int not null,
 brojtelefona varchar (100) not null,
 email varchar (150)
-);
+)engine=innodb;
 
 create table servis (
 sifra int not null primary key auto_increment,
@@ -54,7 +53,7 @@ serviser int not null,
 bojler int not null,
 cijena decimal (8,2) not null,
 datumservisa datetime not null
-);
+)engine=innodb;
 
 
 alter table radijator add foreign key (bojler) references bojler (sifra);
@@ -304,12 +303,12 @@ insert into korisnik(sifra,ime,prezime,ulica,mjesto,postanskibroj,email,brojmobi
 (null,'Tihana','Erić','Mala Jelsa 18','Karlovac',47000,'erictihana@gmail.com','092479864',46);
 
 insert into bojler(sifra,naziv,ucinaknagrijanju,ucinaknatoplojvodi,slika,korisnik) values
-(null,'VAILLANT PLIN KOTAO VUW 116/5-3',11,23,'D:\VUW INT 116–246.jpg',1),
-(null,'VAILLANT PLIN KOTAO VUW 186/5-3',18.5,23,'D:\VUW INT 116–246.jpg',2),
-(null,'VAILLANT PLIN KOTAO VUW 206/5-5',20,24,'D:\VUW INT 206-306.jpg',3),
-(null,'VAILLANT PLIN KOTAO VUW 246/5-3',24,28,'D:\VUW INT 116–246.jpg',4),
-(null,'VAILLANT PLIN KOTAO VUW 256/5-5',25,30,'D:\VUW INT 206-306.jpg',2),
-(null,'VAILLANT PLIN KOTAO VUW 306/5-5',30,34,'D:\VUW INT 206-306.jpg',1);
+(null,'VAILLANT PLIN KOTAO VUW 116/5-3',11,23,'D:/VUW INT 116–246.jpg',1),
+(null,'VAILLANT PLIN KOTAO VUW 186/5-3',18.5,23,'D:/VUW INT 116–246.jpg',2),
+(null,'VAILLANT PLIN KOTAO VUW 206/5-5',20,24,'D:/VUW INT 206-306.jpg',3),
+(null,'VAILLANT PLIN KOTAO VUW 246/5-3',24,28,'D:/VUW INT 116–246.jpg',4),
+(null,'VAILLANT PLIN KOTAO VUW 256/5-5',25,30,'D:/VUW INT 206-306.jpg',2),
+(null,'VAILLANT PLIN KOTAO VUW 306/5-5',30,34,'D:/VUW INT 206-306.jpg',1);
 
 
 insert into servis (sifra,naziv,serviser,bojler,cijena,datumservisa) values
@@ -321,54 +320,54 @@ insert into servis (sifra,naziv,serviser,bojler,cijena,datumservisa) values
 (null,'Redovan servis',46,4,350,'2018-08-25 18:21:48');
 
 insert into radijator (sifra,naziv,tipradijatora,visina,duzina,snaga,zapremnina,bojler,slika) values
-(null,'VAILLANT 11K 600x500','TIP 11',600,500,609,2.9,1,'D:\radijator vaillant.jpg'),
-(null,'VAILLANT 21K 500x1200','TIP 21',500,1200,1819,4.9,1,'D:\radijator vaillant.jpg'),
-(null,'VAILLANT 21K 600x400','TIP 21',600,400,696,5.8,1,'D:\radijator vaillant.jpg'),
-(null,'VAILLANT 21K 600x600','TIP 21',600,600,1044,5.8,1,'D:\radijator vaillant.jpg'),
-(null,'VAILLANT 21K 600x800','TIP 21',600,800,1392,5.8,1,'D:\radijator vaillant.jpg'),
-(null,'VAILLANT 21K 600x900','TIP 21',600,900,1566,5.8,1,'D:\radijator vaillant.jpg'),
-(null,'VAILLANT 21K 600x1000','TIP 21',600,1000,1740,5.8,1,'D:\radijator vaillant.jpg'),
-(null,'VAILLANT 21K 600x1200','TIP 21',600,1200,2088,5.8,1,'D:\radijator vaillant.jpg'),
-(null,'VAILLANT 21K 600x1400','TIP 21',600,1400,2436,5.8,2,'D:\radijator vaillant.jpg'),
-(null,'VAILLANT 21K 900x400','TIP 21',900,400,940,8.3,2,'D:\radijator vaillant.jpg'),
-(null,'VAILLANT 21K 900x500','TIP 21',900,500,1175,8.3,2,'D:\radijator vaillant.jpg'),
-(null,'VAILLANT 21K 900x600','TIP 21',900,600,1410,8.3,2,'D:\radijator vaillant.jpg'),
-(null,'VAILLANT 21K 900x800','TIP 21',900,800,1880,8.3,2,'D:\radijator vaillant.jpg'),
-(null,'VAILLANT 22K 400x600','TIP 22',400,600,1005,3.9,2,'D:\radijator vaillant.jpg'),
-(null,'VAILLANT 22K 500x600','TIP 22',500,600,1197,4.8,2,'D:\radijator vaillant.jpg'),
-(null,'VAILLANT 22K 500x800','TIP 22',500,800,1596,4.8,2,'D:\radijator vaillant.jpg'),
-(null,'VAILLANT 22K 500x1000','TIP 22',500,1000,1995,4.8,2,'D:\radijator vaillant.jpg'), 
-(null,'VAILLANT 22K 500x1100','TIP 22',500,1100,2195,4.8,2,'D:\radijator vaillant.jpg'), 
-(null,'VAILLANT 22K 500x1200','TIP 22',500,1200,2394,4.8,2,'D:\radijator vaillant.jpg'), 
-(null,'VAILLANT 22K 500x1400','TIP 22',500,1400,2793,4.8,3,'D:\radijator vaillant.jpg'), 
-(null,'VAILLANT 22K 500x1600','TIP 22',500,1600,3192,4.8,3,'D:\radijator vaillant.jpg'),
-(null,'VAILLANT 22K 500x2400','TIP 22',500,2400,4788,4.8,3,'D:\radijator vaillant.jpg'),
-(null,'VAILLANT 22K 600x400','TIP 22',600,400,920,5.7,3,'D:\radijator vaillant.jpg'), 
-(null,'VAILLANT 22K 600x500','TIP 22',600,500,1150,5.7,3,'D:\radijator vaillant.jpg'), 
-(null,'VAILLANT 22K 600x600','TIP 22',600,600,1380,5.7,3,'D:\radijator vaillant.jpg'), 
-(null,'VAILLANT 22K 600x700','TIP 22',600,700,1610,5.7,3,'D:\radijator vaillant.jpg'), 
-(null,'VAILLANT 22K 600x800','TIP 22',600,800,1840,5.7,3,'D:\radijator vaillant.jpg'), 
-(null,'VAILLANT 22K 600x900','TIP 22',600,900,2070,5.7,3,'D:\radijator vaillant.jpg'), 
-(null,'VAILLANT 22K 600x1000','TIP 22',600,1000,2300,5.7,4,'D:\radijator vaillant.jpg'), 
-(null,'VAILLANT 22K 600x1100','TIP 22',600,1100,2530,5.7,4,'D:\radijator vaillant.jpg'), 
-(null,'VAILLANT 22K 600x1200','TIP 22',600,1200,2760,5.7,4,'D:\radijator vaillant.jpg'), 
-(null,'VAILLANT 22K 600x1300','TIP 22',600,1300,2990,5.7,4,'D:\radijator vaillant.jpg'), 
-(null,'VAILLANT 22K 600x1400','TIP 22',600,1400,3220,5.7,4,'D:\radijator vaillant.jpg'), 
-(null,'VAILLANT 22K 600x1500','TIP 22',600,1500,3450,5.7,4,'D:\radijator vaillant.jpg'), 
-(null,'VAILLANT 22K 600x1600','TIP 22',600,1600,3680,5.7,4,'D:\radijator vaillant.jpg'), 
-(null,'VAILLANT 22K 600x1800','TIP 22',600,1800,4140,5.7,5,'D:\radijator vaillant.jpg'), 
-(null,'VAILLANT 22K 600x2000','TIP 22',600,2000,4600,5.7,5,'D:\radijator vaillant.jpg'), 
-(null,'VAILLANT 22K 600x2200','TIP 22',600,2200,5060,5.7,5,'D:\radijator vaillant.jpg'), 
-(null,'VAILLANT 22K 900x400','TIP 22',900,400,1255,8.7,4,'D:\radijator vaillant.jpg'), 
-(null,'VAILLANT 22K 900x500','TIP 22',900,500,1569,8.7,4,'D:\radijator vaillant.jpg'), 
-(null,'VAILLANT 22K 900x600','TIP 22',900,600,1882,8.7,5,'D:\radijator vaillant.jpg'), 
-(null,'VAILLANT 22K 900x700','TIP 22',900,700,2196,8.7,5,'D:\radijator vaillant.jpg'), 
-(null,'VAILLANT 22K 900x800','TIP 22',900,800,2510,8.7,5,'D:\radijator vaillant.jpg'), 
-(null,'VAILLANT 22K 900x900','TIP 22',900,900,2823,8.7,5,'D:\radijator vaillant.jpg'), 
-(null,'VAILLANT 22K 900x1000','TIP 22',900,1000,3137,8.7,6,'D:\radijator vaillant.jpg'), 
-(null,'VAILLANT 22K 900x1200','TIP 22',900,1200,3764,8.7,6,'D:\radijator vaillant.jpg'), 
-(null,'VAILLANT 22K 900x1400','TIP 22',900,1400,4392,8.7,6,'D:\radijator vaillant.jpg'), 
-(null,'VAILLANT 33K 600x800','TIP 33',900,800,2601,8.7,6,'D:\radijator vaillant.jpg'), 
-(null,'VAILLANT 33K 600x1000','TIP 33',600,1000,3251,8.7,6,'D:\radijator vaillant.jpg'), 
-(null,'VAILLANT 33K 600x1200','TIP 33',600,1200,3901,8.7,6,'D:\radijator vaillant.jpg'), 
-(null,'VAILLANT 33K 600x1400','TIP 33',600,1400,4551,8.7,6,'D:\radijator vaillant.jpg');
+(null,'VAILLANT 11K 600x500','TIP 11',600,500,609,2.9,1,"D:/radijator vaillant.jpg"),
+(null,'VAILLANT 21K 500x1200','TIP 21',500,1200,1819,4.9,1,"D:/radijator vaillant.jpg"),
+(null,'VAILLANT 21K 600x400','TIP 21',600,400,696,5.8,1,'D:/radijator vaillant.jpg'),
+(null,'VAILLANT 21K 600x600','TIP 21',600,600,1044,5.8,1,'D:/radijator vaillant.jpg'),
+(null,'VAILLANT 21K 600x800','TIP 21',600,800,1392,5.8,1,'D:/radijator vaillant.jpg'),
+(null,'VAILLANT 21K 600x900','TIP 21',600,900,1566,5.8,1,'D:/radijator vaillant.jpg'),
+(null,'VAILLANT 21K 600x1000','TIP 21',600,1000,1740,5.8,1,'D:/radijator vaillant.jpg'),
+(null,'VAILLANT 21K 600x1200','TIP 21',600,1200,2088,5.8,1,'D:/radijator vaillant.jpg'),
+(null,'VAILLANT 21K 600x1400','TIP 21',600,1400,2436,5.8,2,'D:/radijator vaillant.jpg'),
+(null,'VAILLANT 21K 900x400','TIP 21',900,400,940,8.3,2,'D:/radijator vaillant.jpg'),
+(null,'VAILLANT 21K 900x500','TIP 21',900,500,1175,8.3,2,'D:/radijator vaillant.jpg'),
+(null,'VAILLANT 21K 900x600','TIP 21',900,600,1410,8.3,2,'D:/radijator vaillant.jpg'),
+(null,'VAILLANT 21K 900x800','TIP 21',900,800,1880,8.3,2,'D:/radijator vaillant.jpg'),
+(null,'VAILLANT 22K 400x600','TIP 22',400,600,1005,3.9,2,'D:/radijator vaillant.jpg'),
+(null,'VAILLANT 22K 500x600','TIP 22',500,600,1197,4.8,2,'D:/radijator vaillant.jpg'),
+(null,'VAILLANT 22K 500x800','TIP 22',500,800,1596,4.8,2,'D:/radijator vaillant.jpg'),
+(null,'VAILLANT 22K 500x1000','TIP 22',500,1000,1995,4.8,2,'D:/radijator vaillant.jpg'), 
+(null,'VAILLANT 22K 500x1100','TIP 22',500,1100,2195,4.8,2,'D:/radijator vaillant.jpg'), 
+(null,'VAILLANT 22K 500x1200','TIP 22',500,1200,2394,4.8,2,'D:/radijator vaillant.jpg'), 
+(null,'VAILLANT 22K 500x1400','TIP 22',500,1400,2793,4.8,3,'D:/radijator vaillant.jpg'), 
+(null,'VAILLANT 22K 500x1600','TIP 22',500,1600,3192,4.8,3,'D:/radijator vaillant.jpg'),
+(null,'VAILLANT 22K 500x2400','TIP 22',500,2400,4788,4.8,3,'D:/radijator vaillant.jpg'),
+(null,'VAILLANT 22K 600x400','TIP 22',600,400,920,5.7,3,'D:/radijator vaillant.jpg'), 
+(null,'VAILLANT 22K 600x500','TIP 22',600,500,1150,5.7,3,'D:/radijator vaillant.jpg'), 
+(null,'VAILLANT 22K 600x600','TIP 22',600,600,1380,5.7,3,'D:/radijator vaillant.jpg'), 
+(null,'VAILLANT 22K 600x700','TIP 22',600,700,1610,5.7,3,'D:/radijator vaillant.jpg'), 
+(null,'VAILLANT 22K 600x800','TIP 22',600,800,1840,5.7,3,'D:/radijator vaillant.jpg'), 
+(null,'VAILLANT 22K 600x900','TIP 22',600,900,2070,5.7,3,'D:/radijator vaillant.jpg'), 
+(null,'VAILLANT 22K 600x1000','TIP 22',600,1000,2300,5.7,4,'D:/radijator vaillant.jpg'), 
+(null,'VAILLANT 22K 600x1100','TIP 22',600,1100,2530,5.7,4,'D:/radijator vaillant.jpg'), 
+(null,'VAILLANT 22K 600x1200','TIP 22',600,1200,2760,5.7,4,'D:/radijator vaillant.jpg'), 
+(null,'VAILLANT 22K 600x1300','TIP 22',600,1300,2990,5.7,4,'D:/radijator vaillant.jpg'), 
+(null,'VAILLANT 22K 600x1400','TIP 22',600,1400,3220,5.7,4,'D:/radijator vaillant.jpg'), 
+(null,'VAILLANT 22K 600x1500','TIP 22',600,1500,3450,5.7,4,'D:/radijator vaillant.jpg'), 
+(null,'VAILLANT 22K 600x1600','TIP 22',600,1600,3680,5.7,4,'D:/radijator vaillant.jpg'), 
+(null,'VAILLANT 22K 600x1800','TIP 22',600,1800,4140,5.7,5,'D:/radijator vaillant.jpg'), 
+(null,'VAILLANT 22K 600x2000','TIP 22',600,2000,4600,5.7,5,'D:/radijator vaillant.jpg'), 
+(null,'VAILLANT 22K 600x2200','TIP 22',600,2200,5060,5.7,5,'D:/radijator vaillant.jpg'), 
+(null,'VAILLANT 22K 900x400','TIP 22',900,400,1255,8.7,4,'D:/radijator vaillant.jpg'), 
+(null,'VAILLANT 22K 900x500','TIP 22',900,500,1569,8.7,4,'D:/radijator vaillant.jpg'), 
+(null,'VAILLANT 22K 900x600','TIP 22',900,600,1882,8.7,5,'D:/radijator vaillant.jpg'), 
+(null,'VAILLANT 22K 900x700','TIP 22',900,700,2196,8.7,5,'D:/radijator vaillant.jpg'), 
+(null,'VAILLANT 22K 900x800','TIP 22',900,800,2510,8.7,5,'D:/radijator vaillant.jpg'), 
+(null,'VAILLANT 22K 900x900','TIP 22',900,900,2823,8.7,5,'D:/radijator vaillant.jpg'), 
+(null,'VAILLANT 22K 900x1000','TIP 22',900,1000,3137,8.7,6,'D:/radijator vaillant.jpg'), 
+(null,'VAILLANT 22K 900x1200','TIP 22',900,1200,3764,8.7,6,'D:/radijator vaillant.jpg'), 
+(null,'VAILLANT 22K 900x1400','TIP 22',900,1400,4392,8.7,6,'D:/radijator vaillant.jpg'), 
+(null,'VAILLANT 33K 600x800','TIP 33',900,800,2601,8.7,6,'D:/radijator vaillant.jpg'), 
+(null,'VAILLANT 33K 600x1000','TIP 33',600,1000,3251,8.7,6,'D:/radijator vaillant.jpg'), 
+(null,'VAILLANT 33K 600x1200','TIP 33',600,1200,3901,8.7,6,'D:/radijator vaillant.jpg'), 
+(null,'VAILLANT 33K 600x1400','TIP 33',600,1400,4551,8.7,6,'D:/radijator vaillant.jpg');
