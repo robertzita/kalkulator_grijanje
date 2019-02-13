@@ -1,0 +1,39 @@
+<a href="<?php echo App::config("url") ?>serviser/prepareadd" class="success button expanded">
+    Dodaj novog servisera
+</a>
+<table>
+    <thead>
+        <tr>
+            <th>Naziv</th>
+            <th>Adresa</th>
+            <th>Poštanski broj</th>
+            <th>Broj telefona</th>
+            <th>Email</th>
+            <th>Akcija</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach($serviseri as $serviser): ?>
+        <tr>
+            <td><?php echo $serviser->naziv ?></td>
+            <td><?php echo $serviser->adresa ?></td>
+            <td><?php echo $serviser->postanskibroj ?></td>
+            <td><?php echo $serviser->brojtelefona ?></td>
+            <td><?php echo $serviser->email ?></td>
+            <td> 
+                <a href="<?php echo App::config("url") ?>serviser/prepareedit/<?php echo $serviser->sifra ?>">
+                    <i class="fas fa-edit fa-2x"></i>
+                </a>
+
+                <?php if($serviser->ukupno==0): ?>
+                    <a style="color: red;"
+                     href="<?php echo App::config("url") ?>serviser/delete/<?php echo $serviser->sifra ?>">
+                        <i class="fas fa-trash fa-2x"></i>
+                    </a>
+                <?php endif; ?>
+            
+             </td>
+        </tr>
+        <?php endforeach;?>
+    </tbody>
+</table>
