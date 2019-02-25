@@ -371,3 +371,15 @@ insert into radijator (sifra,naziv,tipradijatora,visina,duzina,snaga,zapremnina,
 (null,'VAILLANT 33K 600x1000','TIP 33',600,1000,3251,8.7,6,'D:/radijator vaillant.jpg'), 
 (null,'VAILLANT 33K 600x1200','TIP 33',600,1200,3901,8.7,6,'D:/radijator vaillant.jpg'), 
 (null,'VAILLANT 33K 600x1400','TIP 33',600,1400,4551,8.7,6,'D:/radijator vaillant.jpg');
+
+
+CREATE TABLE `operater` (
+  `sifra` int(11) NOT NULL,
+  `ime` varchar(50) NOT NULL,
+  `prezime` varchar(50) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `lozinka` char(60) NOT NULL
+) engine=innodb;
+
+INSERT INTO `operater` (`sifra`, `ime`, `prezime`, `email`, `lozinka`) VALUES
+(1, 'Robert', 'Zita', 'zitaa91@gmail.com', '$2y$10$djsCQDphHsPVr2FFGZMjI.jFQAjHk8aHQPgMBhrrhPc99x2D3I75a');

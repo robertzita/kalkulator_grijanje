@@ -42,7 +42,7 @@ class AdminController
     {
         Session::getInstance()->odjava();
         $view = new View();
-        $view->render('index',["poruka"=>""]);
+        $view->render('index',["poruka"=>"Odjavljeni ste"]);
 
     }
 

@@ -1,14 +1,14 @@
 <?php
 
- 
+
 class Session
 {
     private static $instance;
     private $user;
 
     public function __construct()
-    {
-        session_start();
+	{
+		session_start();
         if(isset($_SESSION["user"])){
             $this->user=$_SESSION["user"];
         }

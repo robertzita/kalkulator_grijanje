@@ -12,6 +12,11 @@ return [
 
     ]
 
-
+   /* "db"=> [
+        "host"=>"localhost",
+        "name"=>"grijanje",
+        "user"=>"edunova",
+        "password"=>"edunova"
+    ]*/
 
 ];

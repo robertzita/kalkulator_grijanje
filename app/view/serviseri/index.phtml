@@ -6,9 +6,9 @@
         <tr>
             <th>Naziv</th>
             <th>Adresa</th>
-            <th>Poštanski broj</th>
-            <th>Broj telefona</th>
-            <th>Email</th>
+            <th class="hide-for-small-only">Poštanski broj</th>
+            <th >Broj telefona</th>
+            <th class="hide-for-small-only">Email</th>
             <th>Akcija</th>
         </tr>
     </thead>
@@ -17,9 +17,9 @@
         <tr>
             <td><?php echo $serviser->naziv ?></td>
             <td><?php echo $serviser->adresa ?></td>
-            <td><?php echo $serviser->postanskibroj ?></td>
+            <td class="hide-for-small-only"><?php echo $serviser->postanskibroj ?></td>
             <td><?php echo $serviser->brojtelefona ?></td>
-            <td><?php echo $serviser->email ?></td>
+            <td class="hide-for-small-only"><?php echo $serviser->email ?></td>
             <td> 
                 <a href="<?php echo App::config("url") ?>serviser/prepareedit/<?php echo $serviser->sifra ?>">
                     <i class="fas fa-edit fa-2x"></i>

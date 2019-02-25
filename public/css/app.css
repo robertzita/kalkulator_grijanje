@@ -9,7 +9,11 @@
 }
 
 .fa-edit{
-    color: green;
+    color: #009079;
+}
+
+.fa-trash{
+    color: coral;
 }
 
 .callout h1 {
@@ -19,3 +23,29 @@
     text-align: center;
     margin-right: 15px;
 }
+
+@media screen and (max-width: 400px){
+    .izbornikStavke{
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+.top-bar, .top-bar ul {
+    background-color: #009079;
+    text-decoration-color: black;
+}
+
+a {
+    color:black;
+}
+
+div:nth-child(4) {
+    color:#009079;
+}
+
+tbody, tfoot{
+    background-color: #00907929;
+}
+    

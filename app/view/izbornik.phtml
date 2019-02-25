@@ -7,7 +7,7 @@
 
         <div class="top-bar" id="example-menu">
             <div class="top-bar-left">
-                <ul class="dropdown menu" data-dropdown-menu>
+                <ul class="dropdown menu izbornikStavke" data-dropdown-menu>
 
                     <li>
                         <a href="<?php echo App::config("url")."index" ?>">Početna</a>
@@ -33,7 +33,7 @@
                 </ul>
             </div>
             <div class="top-bar-right">
-                <ul class="menu">
+                <ul class="menu izbornikStavke">
                     <li>
                         <?php if(Session::getInstance()->isLogiran()): ?>
                         <a href="<?php echo App::config("url") ?>admin/odjava">Odjava

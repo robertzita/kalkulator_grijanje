@@ -1,16 +1,8 @@
 <?php
 
-class ServiserController
+class ServiserController extends ProtectedController
 {
-    public function __construct()
-    {
-        if(!Session::getInstance()->isLogiran()){
-            $view = new View();
-            $view->render('index',["poruka"=>"Nemate ovlasti"]);
-            exit;
-        }
-    }
-
+    
     function add()
     {
         $kontrola = $this->kontrola();
@@ -77,7 +69,7 @@ class ServiserController
         }
 
         if(strlen(Request::post("adresa"))>100){
-            return "Adresa ne smije biti veći od 100 znakova";
+            return "Adresa ne smije biti veća od 100 znakova";
         }
 
         if(intval(Request::post("postanskibroj"))<=0){
