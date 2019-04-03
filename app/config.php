@@ -1,7 +1,7 @@
 <?php 
 
 return [
-    "url"=>"http://polaznik02.edunova.hr/kalkulator_grijanja/",
+    "url"=>"http://polaznik02.edunova.hr/",
     "dev"=>true,
     "nazivApp" => "Kalkulator Grijanja",
     "db"=> [
@@ -12,11 +12,11 @@ return [
 
     ]
 
-   /* "db"=> [
+   /*  "db"=> [
         "host"=>"localhost",
         "name"=>"grijanje",
         "user"=>"edunova",
         "password"=>"edunova"
-    ]*/
+    ] */
 
 ];

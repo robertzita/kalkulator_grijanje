@@ -1,0 +1,78 @@
+<form class="log-in-form" method="post" 
+action="<?php echo App::config("url") ?>korisnik/edit/<?php echo Request::post("sifra") ?>">
+
+
+<div class="grid-x">
+<div class="large-4 columns">
+        
+  
+
+  <label>Ime
+    <input type="text" name="ime" 
+    value="<?php echo Request::post("ime") ?>" />
+  </label>
+
+  <label>Prezime
+    <input type="text" name="prezime" 
+    value="<?php echo Request::post("prezime") ?>" />
+  </label>
+  
+  <label>Adresa
+    <input type="text" name="adresa" 
+    value="<?php echo Request::post("adresa") ?>" />
+  </label>
+
+  <label>Poštanski broj
+    <input type="number" name="ime" 
+    value="<?php echo Request::post("ime") ?>" />
+  </label>
+  
+  <label>Email
+    <input type="text" name="email" 
+    value="<?php echo Request::post("email") ?>" />
+  </label>
+
+  <label>Broj telefona
+    <input type="number" name="brojtelefona" 
+    value="<?php echo Request::post("brojtelefona") ?>" />
+  </label>
+  
+  <label for="seviser">Serviser</label>
+  <select name="serviser" id="serviser">
+  <option value="0">Odaberi servisera</option>
+
+  <?php foreach(Serviser::read() as $serviser): ?>
+
+    
+
+    <option 
+
+      <?php if(Request::post("serivser")==$serviser->sifra):?>
+      selected="selected" 
+      <?php endif;?>
+
+      value="<?php echo $serviser->sifra ?>"><?php echo $serviser->naziv ?></option>
+
+  <?php endforeach; ?>
+
+
+
+
+</div>
+</div>
+
+  
+ <div class="grid-x">
+    <div class="large-6 columns" style="padding: 10px;">
+        <a href="<?php echo App::config("url") ?>korisnik/index" class="alert button expanded">
+            Odustani
+        </a>
+    </div>
+    <div class="large-6 columns"  style="padding: 10px;">
+        <input type="submit" class="success button expanded" value="Promjeni" />
+    </div>
+ </div>
+  
+
+</form>
+<?php echo $poruka ?>

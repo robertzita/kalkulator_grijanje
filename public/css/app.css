@@ -24,6 +24,11 @@
     margin-right: 15px;
 }
 
+a.git:hover { 
+    color: black;
+    background-color: #00907929;
+  }
+
 @media screen and (max-width: 400px){
     .izbornikStavke{
         display: block;
@@ -45,4 +50,7 @@ a {
 tbody, tfoot{
     background-color: #00907929;
 }
-
+.pagination a:hover,
+.pagination button:hover {
+    background: #00907929;
+}

@@ -2,8 +2,9 @@
 
 class Serviser
 {
-    public static function read()
+    public static function read($stranica)
     {
+        $poStranici=10;
         $db = Db::getInstance();
         $izraz = $db->prepare("
         
@@ -24,6 +25,7 @@ class Serviser
                 a.brojtelefona,
                 a.email
                 order by a.naziv
+                limit " . (($stranica*$poStranici) - $poStranici) . ",$poStranici
         
         ");
         $izraz->execute();

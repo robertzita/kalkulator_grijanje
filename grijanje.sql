@@ -10,7 +10,7 @@ naziv varchar (100) not null,
 ucinaknagrijanju decimal (4,2) not null,
 ucinaknatoplojvodi decimal (4,2) not null,
 slika varchar (200) not null,
-korisnik int not null
+korisnik int
 )engine=innodb;
 
 
@@ -18,12 +18,11 @@ create table korisnik (
 sifra int not null primary key auto_increment,
 ime varchar (100) not null,
 prezime varchar (100) not null,
-ulica varchar (100) not null,
-mjesto varchar (100) not null,
+adresa varchar (100) not null,
 postanskibroj int not null,
 email varchar (200) not null,
-brojmobitela varchar (20) not null,
-serviser int not null
+brojtelefona varchar (50) not null,
+serviser int 
 )engine=innodb;
 create table radijator (
 sifra int not null primary key auto_increment,
@@ -33,7 +32,7 @@ visina int not null,
 duzina int not null,
 snaga int  not null,
 zapremnina decimal (3,1) not null,
-bojler int not null,
+bojler int,
 slika varchar (200) not null
 )engine=innodb;
 
@@ -42,7 +41,7 @@ sifra int not null primary key auto_increment,
 naziv varchar (100) not null,
 adresa varchar (100) not null,
 postanskibroj int not null,
-brojtelefona varchar (100) not null,
+brojtelefona varchar (50) not null,
 email varchar (150)
 )engine=innodb;
 
@@ -296,11 +295,11 @@ insert into serviser (sifra,naziv,adresa,postanskibroj,brojtelefona,email) value
 (null,'Zagrebgradnja','5. Ravnice 6, Zagreb',10000,'01/2351-700','zdenko.severin@zagrebgradnja.hr'),
 (null,'Zeko zna','Frana Alfirevića 61, Zagreb',10000,'01/2304-555','info@zeko-zna.hr');
 
-insert into korisnik(sifra,ime,prezime,ulica,mjesto,postanskibroj,email,brojmobitela,serviser) values
-(null,'Robert','Zita','Hrvatskih branitelja 6','Valpovo',31550,'zitaa91@gmail.com','0915654643',111),
-(null,'Marko','Palić','Buconjićeva 55','Zagreb',10000,'mpalic@gmail.com','0988453643',188),
-(null,'Valentina','Konić','H.V. Hrvatinića 5','Vinkovci',32100,'konicv91@gmail.com','099325987',120),
-(null,'Tihana','Erić','Mala Jelsa 18','Karlovac',47000,'erictihana@gmail.com','092479864',46);
+insert into korisnik(sifra,ime,prezime,adresa,postanskibroj,email,brojtelefona,serviser) values
+(null,'Robert','Zita','Hrvatskih branitelja 6, Valpovo',31550,'zitaa91@gmail.com','0915654643',111),
+(null,'Marko','Palić','Buconjićeva 55, Zagreb',10000,'mpalic@gmail.com','0988453643',188),
+(null,'Valentina','Konić','H.V. Hrvatinića 5, Vinkovci',32100,'konicv91@gmail.com','099325987',120),
+(null,'Tihana','Erić','Mala Jelsa 18, Karlovac',47000,'erictihana@gmail.com','092479864',46);
 
 insert into bojler(sifra,naziv,ucinaknagrijanju,ucinaknatoplojvodi,slika,korisnik) values
 (null,'VAILLANT PLIN KOTAO VUW 116/5-3',11,23,'D:/VUW INT 116–246.jpg',1),
@@ -374,11 +373,11 @@ insert into radijator (sifra,naziv,tipradijatora,visina,duzina,snaga,zapremnina,
 
 
 CREATE TABLE `operater` (
-  `sifra` int(11) NOT NULL,
-  `ime` varchar(50) NOT NULL,
-  `prezime` varchar(50) NOT NULL,
-  `email` varchar(100) NOT NULL,
-  `lozinka` char(60) NOT NULL
+  `sifra` int(11) not null primary key auto_increment,
+  `ime` varchar(50) not null,
+  `prezime` varchar(50) not null,
+  `email` varchar(100) not null,
+  `lozinka` char(60) not null
 ) engine=innodb;
 
 INSERT INTO `operater` (`sifra`, `ime`, `prezime`, `email`, `lozinka`) VALUES

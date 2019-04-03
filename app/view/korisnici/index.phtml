@@ -1,0 +1,43 @@
+<a href="<?php echo App::config("url") ?>korisnik/add" class="success button expanded">
+    Dodaj novog korisnika
+</a>
+<table>
+    <thead>
+        <tr>
+            <th>Ime</th>
+            <th>Prezime</th>
+            <th>Adresa</th>
+            <th>Poštanski broj</th>
+            <th class="hide-for-small-only">Email</th>
+            <th>Broj telefona</th>
+            <th>Serviser</th>
+            <th>Akcija</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach($korisnici as $korisnik): ?>
+        <tr>
+            <td><?php echo $korisnik->ime ?></td>
+            <td><?php echo $korisnik->prezime ?></td>
+            <td><?php echo $korisnik->adresa ?></td>
+            <td><?php echo $korisnik->postanskibroj ?></td>
+            <td class="hide-for-small-only"><?php echo $korisnik->email ?></td>
+            <td><?php echo $korisnik->brojtelefona ?></td>
+            <td><?php echo $korisnik->serviser ?></td>
+            <td> 
+                <a href="<?php echo App::config("url") ?>korisnik/prepareedit/<?php echo $korisnik->sifra ?>">
+                    <i class="fas fa-edit fa-2x"></i>
+                </a>
+
+                <?php if($korisnik->ukupno==0): ?>
+                    <a style="color: red;"
+                     href="<?php echo App::config("url") ?>korisnik/delete/<?php echo $korisnik->sifra ?>">
+                        <i class="fas fa-trash fa-2x"></i>
+                    </a>
+                <?php endif; ?>
+            
+             </td>
+        </tr>
+        <?php endforeach;?>
+    </tbody>
+</table>
