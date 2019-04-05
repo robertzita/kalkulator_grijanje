@@ -3,7 +3,7 @@ action="<?php echo App::config("url") ?>korisnik/edit/<?php echo Request::post("
 
 
 <div class="grid-x">
-<div class="large-4 columns">
+<div class="large-12 columns">
         
   
 
@@ -23,8 +23,8 @@ action="<?php echo App::config("url") ?>korisnik/edit/<?php echo Request::post("
   </label>
 
   <label>Poštanski broj
-    <input type="number" name="ime" 
-    value="<?php echo Request::post("ime") ?>" />
+    <input type="number" name="postanskibroj" 
+    value="<?php echo Request::post("postanskibroj") ?>" />
   </label>
   
   <label>Email
@@ -37,17 +37,17 @@ action="<?php echo App::config("url") ?>korisnik/edit/<?php echo Request::post("
     value="<?php echo Request::post("brojtelefona") ?>" />
   </label>
   
-  <label for="seviser">Serviser</label>
+  <label for="serviser">Serviser</label>
   <select name="serviser" id="serviser">
   <option value="0">Odaberi servisera</option>
 
-  <?php foreach(Serviser::read() as $serviser): ?>
+  <?php foreach(Serviser::read(1) as $serviser): ?>
 
     
 
     <option 
 
-      <?php if(Request::post("serivser")==$serviser->sifra):?>
+      <?php if(Request::post("serviser")==$serviser->sifra):?>
       selected="selected" 
       <?php endif;?>
 
@@ -55,12 +55,12 @@ action="<?php echo App::config("url") ?>korisnik/edit/<?php echo Request::post("
 
   <?php endforeach; ?>
 
+  </select>
 
 
 
+  </div>
 </div>
-</div>
-
   
  <div class="grid-x">
     <div class="large-6 columns" style="padding: 10px;">
@@ -72,7 +72,7 @@ action="<?php echo App::config("url") ?>korisnik/edit/<?php echo Request::post("
         <input type="submit" class="success button expanded" value="Promjeni" />
     </div>
  </div>
-  
+ 
 
 </form>
 <?php echo $poruka ?>

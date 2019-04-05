@@ -6,17 +6,20 @@ class Korisnik
     {
         $db = Db::getInstance();
         $izraz = $db->prepare("
-            select 
+            select
+            a.sifra, 
             a.ime,
             a.prezime,
             a.adresa,
             a.postanskibroj,
             a.email,
             a.brojtelefona,
-            b.naziv as serviser
+            b.naziv as serviser,
+            count(b.sifra) as ukupno 
             from korisnik a
             left join serviser b on a.serviser =b.sifra
             group by
+            a.sifra,
             a.ime,
             a.prezime,
             a.adresa,
@@ -43,7 +46,7 @@ class Korisnik
     {
         $db = Db::getInstance();
         $izraz = $db->prepare("insert into korisnik(ime,prezime,adresa,postanskibroj,email,brojtelefona,serviser)
-        values ('','','','','','',null)");
+        values ('','','','',null,null,null)");
         $izraz->execute();
     }
 
@@ -51,7 +54,7 @@ class Korisnik
     public static function update($id)
     {
         $db = Db::getInstance();
-        $izraz = $db->prepare("update grupa set
+        $izraz = $db->prepare("update korisnik set
         ime=:ime,
         prezime=:prezime,
         adresa=:adresa,
@@ -69,7 +72,7 @@ class Korisnik
     public static function delete($id)
     {
         $db = Db::getInstance();
-        $izraz = $db->prepare("delete from smjer where sifra=:sifra");
+        $izraz = $db->prepare("delete from korisnik where sifra=:sifra");
         $podaci = [];
         $podaci["sifra"]=$id;
         $izraz->execute($podaci);

@@ -20,8 +20,8 @@ ime varchar (100) not null,
 prezime varchar (100) not null,
 adresa varchar (100) not null,
 postanskibroj int not null,
-email varchar (200) not null,
-brojtelefona varchar (50) not null,
+email varchar (200),
+brojtelefona varchar (50),
 serviser int 
 )engine=innodb;
 create table radijator (

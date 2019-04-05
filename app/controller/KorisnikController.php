@@ -28,7 +28,7 @@ class KorisnikController extends ProtectedController
         }
 
         
-        private function kontrola()
+        function kontrola()
         {
             return true;
         }
