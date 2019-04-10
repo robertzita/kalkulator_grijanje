@@ -48,6 +48,7 @@ class Korisnik
         $izraz = $db->prepare("insert into korisnik(ime,prezime,adresa,postanskibroj,email,brojtelefona,serviser)
         values ('','','','',null,null,null)");
         $izraz->execute();
+        return $db->lastInsertId();
     }
 
 
