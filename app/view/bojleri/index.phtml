@@ -1,0 +1,35 @@
+<a href="<?php echo App::config("url") ?>bojler/add" class="success button expanded">
+    Dodaj novi kondenzacijski uređaj
+</a>
+<table>
+    <thead>
+        <tr>
+            <th>Naziv</th>
+            <th>Učinak na grijanju 80/60 °C</th>
+            <th>Učinak na toploj vodi</th>
+            <th>Korisnik</th>
+            <th>Akcija</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach($bojleri as $bojler): ?>
+        <tr>
+            <td><?php echo $bojler->naziv ?></td>
+            <td><?php echo $bojler->ucinaknagrijanju ?> kW</td>
+            <td><?php echo $bojler->ucinaknatoplojvodi ?> kW</td>
+            <td><?php echo $bojler->korisnik ?></td>
+            <td> 
+                <a href="<?php echo App::config("url") ?>bojler/prepareedit/<?php echo $bojler->sifra ?>">
+                    <i class="fas fa-edit fa-2x"></i>
+                </a>
+
+                
+                    <a style="color: red;"
+                     href="<?php echo App::config("url") ?>bojler/delete/<?php echo $bojler->sifra ?>">
+                        <i class="fas fa-trash fa-2x"></i>
+                    </a>    
+             </td>
+        </tr>
+        <?php endforeach;?>
+    </tbody>
+</table>

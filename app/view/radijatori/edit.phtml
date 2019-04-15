@@ -1,0 +1,78 @@
+<form class="log-in-form" method="post" 
+action="<?php echo App::config("url") ?>bojler/edit/<?php echo Request::post("sifra") ?>">
+
+
+<div class="grid-x">
+<div class="large-12 columns">
+        
+  
+
+  <label>Naziv
+    <input type="text" name="naziv" 
+    value="<?php echo Request::post("naziv") ?>" />
+  </label>
+
+  <label>Tip radijatora
+    <input type="text" name="tipradijatora" 
+    value="<?php echo Request::post("tipradijatora") ?>" />
+  </label>
+  
+  <label>Visina
+    <input type="number" name="visina" 
+    value="<?php echo Request::post("visina") ?>" />
+  </label>
+
+  <label>Dužina
+    <input type="number" name="duzina" 
+    value="<?php echo Request::post("duzina") ?>" />
+  </label>
+
+  <label>Snaga
+    <input type="number" name="snaga" 
+    value="<?php echo Request::post("snaga") ?>" />
+  </label>
+
+  <label>Zapremnina
+    <input type="number" name="zapremnina" 
+    value="<?php echo Request::post("zapremnina") ?>" />
+  </label>
+
+  <label for="bojler">Kondenzacijski uređaj</label>
+  <select name="bojler" id="bojler">
+  <option value="0">Odaberi kondenzacijski uređaj</option>
+
+  <?php foreach(Bojler::read() as $bojler): ?>
+
+    
+
+    <option 
+
+      <?php if(Request::post("bojler")==$bojler->sifra):?>
+      selected="selected" 
+      <?php endif;?>
+
+      value="<?php echo $bojler->sifra ?>"><?php echo $bojler->naziv ?></option>
+
+  <?php endforeach; ?>
+
+  </select>
+
+
+
+  </div>
+</div>
+  
+ <div class="grid-x">
+    <div class="large-6 columns" style="padding: 10px;">
+        <a href="<?php echo App::config("url") ?>radijator/index" class="alert button expanded">
+            Odustani
+        </a>
+    </div>
+    <div class="large-6 columns"  style="padding: 10px;">
+        <input type="submit" class="success button expanded" value="Promjeni" />
+    </div>
+ </div>
+ 
+
+</form>
+<?php echo $poruka ?>

@@ -10,13 +10,13 @@ return [
         "user"=>"aurelije_rzita",
         "password"=>"grijanje123"
 
-    ] 
+    ]
 
-  /*    "db"=> [
+     /* "db"=> [
         "host"=>"localhost",
         "name"=>"grijanje",
         "user"=>"edunova",
         "password"=>"edunova"
-    ]  */
+    ]   */
 
 ];

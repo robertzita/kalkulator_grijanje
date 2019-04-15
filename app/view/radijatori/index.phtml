@@ -1,0 +1,41 @@
+<a href="<?php echo App::config("url") ?>radijator/add" class="success button expanded">
+    Dodaj novi radijator
+</a>
+<table>
+    <thead>
+        <tr>
+            <th>Naziv</th>
+            <th>Tip radijatora</th>
+            <th>Visina</th>
+            <th>Dužina</th>
+            <th>Snaga</th>
+            <th>Zapremnina</th>
+            <th>Kondenzacijski uređaj</th>
+            <th>Akcija</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach($radijatori as $radijator): ?>
+        <tr>
+            <td><?php echo $radijator->naziv ?></td>
+            <td><?php echo $radijator->tipradijatora ?></td>
+            <td><?php echo $radijator->visina ?> mm</td>
+            <td><?php echo $radijator->duzina ?> mm</td>
+            <td><?php echo $radijator->snaga ?> W</td>
+            <td><?php echo $radijator->zapremnina ?> l</td>
+            <td><?php echo $radijator->bojler ?></td>
+            <td> 
+                <a href="<?php echo App::config("url") ?>radijator/prepareedit/<?php echo $radijator->sifra ?>">
+                    <i class="fas fa-edit fa-2x"></i>
+                </a>
+
+                
+                    <a style="color: red;"
+                     href="<?php echo App::config("url") ?>radijator/delete/<?php echo $radijator->sifra ?>">
+                        <i class="fas fa-trash fa-2x"></i>
+                    </a>    
+             </td>
+        </tr>
+        <?php endforeach;?>
+    </tbody>
+</table>
