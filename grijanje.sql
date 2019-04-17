@@ -48,8 +48,8 @@ email varchar (150)
 create table servis (
 sifra int not null primary key auto_increment,
 naziv varchar (100) not null,
-serviser int not null,
-bojler int not null,
+serviser int ,
+bojler int ,
 cijena decimal (8,2) not null,
 datumservisa datetime not null
 )engine=innodb;

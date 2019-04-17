@@ -1,5 +1,5 @@
 <form class="log-in-form" method="post" 
-action="<?php echo App::config("url") ?>radijator/edit/<?php echo Request::post("sifra") ?>">
+action="<?php echo App::config("url") ?>servis/edit/<?php echo Request::post("sifra") ?>">
 
 
 <div class="grid-x">
@@ -12,31 +12,24 @@ action="<?php echo App::config("url") ?>radijator/edit/<?php echo Request::post(
     value="<?php echo Request::post("naziv") ?>" />
   </label>
 
-  <label>Tip radijatora
-    <input type="text" name="tipradijatora" 
-    value="<?php echo Request::post("tipradijatora") ?>" />
-  </label>
-  
-  <label>Visina
-    <input type="number" name="visina" 
-    value="<?php echo Request::post("visina") ?>" />
-  </label>
+  <label for="serviser">Serviser</label>
+  <select name="serviser" id="serviser">
+  <option value="0">Odaberi servisera</option>
 
-  <label>Dužina
-    <input type="number" name="duzina" 
-    value="<?php echo Request::post("duzina") ?>" />
-  </label>
+  <?php foreach(Serviser::read(1) as $serviser): ?>
 
-  <label>Snaga
-    <input type="number" name="snaga" 
-    value="<?php echo Request::post("snaga") ?>" />
-  </label>
+    
 
-  <label>Zapremnina
-    <input type="number" name="zapremnina" 
-    value="<?php echo Request::post("zapremnina") ?>" />
-  </label>
+    <option 
 
+      <?php if(Request::post("serviser")==$serviser->sifra):?>
+      selected="selected" 
+      <?php endif;?>
+
+      value="<?php echo $serviser->sifra ?>"><?php echo $serviser->naziv ?></option>
+
+  <?php endforeach; ?>
+  </select>
   <label for="bojler">Kondenzacijski uređaj</label>
   <select name="bojler" id="bojler">
   <option value="0">Odaberi kondenzacijski uređaj</option>
@@ -54,8 +47,22 @@ action="<?php echo App::config("url") ?>radijator/edit/<?php echo Request::post(
       value="<?php echo $bojler->sifra ?>"><?php echo $bojler->naziv ?></option>
 
   <?php endforeach; ?>
-
   </select>
+  <label>Cijena
+    <input type="number" name="cijena" 
+    value="<?php echo Request::post("cijena") ?>" />
+  </label>
+
+  <label>Datum servisa
+    <input type="date" name="datumservisa" 
+    value="<?php echo date("Y-m-d",strtotime(Request::post("datumservisa"))) ?>" />
+  </label>
+
+  
+
+  
+
+  
 
 
 
@@ -64,7 +71,7 @@ action="<?php echo App::config("url") ?>radijator/edit/<?php echo Request::post(
   
  <div class="grid-x">
     <div class="large-6 columns" style="padding: 10px;">
-        <a href="<?php echo App::config("url") ?>radijator/index" class="alert button expanded">
+        <a href="<?php echo App::config("url") ?>servis/index" class="alert button expanded">
             Odustani
         </a>
     </div>

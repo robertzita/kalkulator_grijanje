@@ -15,7 +15,7 @@ class Korisnik
             a.email,
             a.brojtelefona,
             b.naziv as serviser,
-            count(c.sifra) as ukupno 
+            count(c.korisnik) as ukupno 
             from korisnik a
             left join serviser b on a.serviser =b.sifra
             left join bojler c on a.sifra=c.korisnik

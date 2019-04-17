@@ -29,11 +29,12 @@
                     <i class="fas fa-edit fa-2x"></i>
                 </a>
 
-                
+                <?php if($radijator->ukupno==0): ?>
                     <a style="color: red;"
                      href="<?php echo App::config("url") ?>radijator/delete/<?php echo $radijator->sifra ?>">
                         <i class="fas fa-trash fa-2x"></i>
-                    </a>    
+                    </a>
+                <?php endif; ?>    
              </td>
         </tr>
         <?php endforeach;?>

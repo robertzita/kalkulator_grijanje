@@ -1,0 +1,38 @@
+<a href="<?php echo App::config("url") ?>servis/add" class="success button expanded">
+    Dodaj novi servis
+</a>
+<table>
+    <thead>
+        <tr>
+            <th>Naziv</th>
+            <th>Serviser</th>
+            <th>Kondenzacijski uređaj</th>
+            <th>Cijena</th>
+            <th>Datum servisa</th>
+            <th>Akcija</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach($servisi as $servis): ?>
+        <tr>
+            <td><?php echo $servis->naziv ?></td>
+            <td><?php echo $servis->serviser ?></td>
+            <td><?php echo $servis->bojler ?></td>
+            <td><?php echo $servis->cijena ?> kn</td>
+            <td><?php echo $servis->datumservisa ?> </td>
+            <td> 
+                <a href="<?php echo App::config("url") ?>servis/prepareedit/<?php echo $servis->sifra ?>">
+                    <i class="fas fa-edit fa-2x"></i>
+                </a>
+
+                <?php if($servis->ukupno==0): ?>
+                    <a style="color: red;"
+                     href="<?php echo App::config("url") ?>servis/delete/<?php echo $servis->sifra ?>">
+                        <i class="fas fa-trash fa-2x"></i>
+                    </a>
+                <?php endif; ?>    
+             </td>
+        </tr>
+        <?php endforeach;?>
+    </tbody>
+</table>

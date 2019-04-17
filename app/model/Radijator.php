@@ -14,7 +14,8 @@ class Radijator
                     a.duzina,
                     a.snaga,
                     a.zapremnina,
-                    b.naziv as bojler from 
+                    b.naziv as bojler,
+                    count(b.sifra) as ukupno from 
                     radijator a
                     left join bojler b on a.bojler=b.sifra
                     group by 

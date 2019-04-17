@@ -15,7 +15,7 @@ class Serviser
                 a.postanskibroj,
                 a.brojtelefona,
                 a.email,
-                count(b.sifra) as ukupno from
+                count(b.serviser) as ukupno from
                 serviser a left join servis b on a.sifra=b.serviser
                 group by
                 a.sifra,
