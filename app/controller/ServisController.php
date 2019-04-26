@@ -2,6 +2,24 @@
 
 class ServisController extends ProtectedController
 {
+    function dodajServisera()
+    {
+
+        echo Servis::dodajServisera(Request::post("servis"),Request::post("serviser"));
+
+    }
+
+    function obrisiServisera()
+    {
+
+        echo Servis::obrisiServisera(Request::post("servis"),Request::post("serviser"));
+
+    }
+
+
+
+
+
     function edit($id)
     {
         $_POST["sifra"]=$id;
@@ -29,6 +47,18 @@ class ServisController extends ProtectedController
 
     function kontrola()
     {
+        if(Request::post("naziv")===""){
+            return "Naziv obavezno";
+        }
+
+        if(strlen(Request::post("naziv"))>70){
+            return "Naziv ne smije biti veći od 70 znakova";
+        }
+
+        if(Request::post("bojler")=="0"){
+            return "Obavezan odabir kondenzacijskog uređaja";
+        }
+
         return true;
     }
 

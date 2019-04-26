@@ -22,12 +22,19 @@
 .operateri {
     text-align: center;
     margin-right: 15px;
+    
 }
+
+.operateri:hover { 
+    background-color: #bffad4;
+  }
 
 a.git:hover { 
     color: black;
     background-color: #00907929;
   }
+
+
 
 @media screen and (max-width: 400px){
     .izbornikStavke{
@@ -53,4 +60,18 @@ tbody, tfoot{
 .pagination a:hover,
 .pagination button:hover {
     background: #00907929;
+}
+
+[type='text'],[type='password'],[type='email'],textarea{
+    background-color: #00907929; 
+}
+
+.button{
+    background-color: #009079;
+    color:black;
+}
+
+.button:hover{
+    background-color: #009079;
+    color: black;
 }

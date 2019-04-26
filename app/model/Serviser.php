@@ -2,7 +2,7 @@
 
 class Serviser
 {
-    public static function read($stranica)
+    public static function read($stranica=1)
     {
         $poStranici=10;
         $db = Db::getInstance();
@@ -74,17 +74,52 @@ class Serviser
     }
 
 
-    private static function podaci()
+    public static function traziServiser($uvjet)
     {
-        return [
-            "naziv"=>Request::post("naziv"),
-            "adresa"=>Request::post("adresa"),
-            "postanskibroj"=>Request::post("postanskibroj"),
-            "brojtelefona"=>Request::post("brojtelefona"),
-            "email"=>Request::post("email")
-        ];
+        $db = Db::getInstance();
+        $izraz = $db->prepare(" select
+                                    a.sifra,
+                                    a.naziv,
+                                    a.adresa,
+                                    a.postanskibroj,
+                                    a.brojtelefona,
+                                    a.email,
+                                    count(b.serviser) as ukupno from
+                                    serviser a left join servis b on a.sifra=b.serviser
+                                    where concat(a.naziv, ' ', a.adresa, ' ', a.brojtelefona) like :uvjet
+                                    group by
+                                    a.sifra,
+                                    a.naziv,
+                                    a.adresa,
+                                    a.postanskibroj,
+                                    a.brojtelefona,
+                                    a.email
+                                    
+        ");
+        $izraz->execute(["uvjet"=>"%" . $uvjet . "%"])  ;
+        return $izraz->fetchAll(); 
     }
 
+
+    public static function readServisers($serviser)
+    {
+        $db = Db::getInstance();
+        $izraz = $db->prepare(" select 
+                                a.sifra,
+                                a.naziv,
+                                a.adresa,
+                                a.postanskibroj,
+                                a.brojtelefona,
+                                a.email
+                                from serviser a 
+                                inner join servis b on a.sifra=b.serviser
+                                where b.serviser=:serviser
+                                
+        
+        ");
+        $izraz->execute(["serviser"=>$serviser]);
+        return $izraz->fetchAll();
+    }
 
 
 

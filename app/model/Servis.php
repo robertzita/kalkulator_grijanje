@@ -1,7 +1,49 @@
 <?php
 
 class Servis
-{
+{   
+
+    public static function dodajServisera($serviser)
+    {
+        $db = Db::getInstance();
+        $db->beginTransaction();
+
+        $izraz = $db->prepare("
+                 select count(*) from servis where serviser=:serviser;
+        ");
+        $izraz->execute(["serviser"=>$serviser]);
+        $ukupno = $izraz->fetchColumn();
+        $vrati="";
+        if($ukupno>0){
+            $vrati= "Serviser postoji na servisu, nije dodan";
+        }else{
+            $izraz = $db->prepare("
+            insert into servis(serviser) values (:serviser);
+            ");
+            $izraz->execute(["serviser"=>$serviser]);
+            $vrati="OK";
+        }
+
+        
+        $db->commit();
+        return $vrati;
+    }
+
+
+    public static function obrisiServisera($serviser)
+    {
+        $db = Db::getInstance();
+
+        $izraz = $db->prepare("
+                delete from servis where  serviser=:serviser;
+        ");
+        $izraz->execute(["serviser"=>$serviser]);
+       
+        return "OK";
+    }
+
+
+
     public static function read()
     {
         $db = Db::getInstance();
@@ -48,9 +90,31 @@ class Servis
         cijena=:cijena,
         datumservisa=:datumservisa
         where sifra=:sifra");
-        $podaci = self::podaci();
-        $podaci["sifra"]=$id;
-        $izraz->execute($podaci);
+
+
+        $izraz->bindParam("naziv",Request::post("naziv"),PDO::PARAM_STR);
+        $izraz->bindParam("serviser",Request::post("serviser"),PDO::PARAM_INT);
+
+        if(Request::post("bojler")=="0"){
+            $izraz->bindValue("bojler",null,PDO::PARAM_NULL);
+        }else{
+            $izraz->bindParam("bojler",Request::post("bojler"),PDO::PARAM_INT);
+        }
+
+        $izraz->bindParam("cijena",Request::post("cijena"),PDO::PARAM_INT);
+
+        if(Request::post("datumservisa")==""){
+            $izraz->bindValue("datumservisa",null,PDO::PARAM_NULL);
+        }else{
+            $izraz->bindParam("datumservisa",Request::post("datumservisa"),PDO::PARAM_STR);
+        }
+
+        
+
+        $izraz->bindParam("sifra",$id,PDO::PARAM_INT);
+
+
+        $izraz->execute();
     }
 
     public static function delete($id)
@@ -63,13 +127,5 @@ class Servis
     }
 
 
-    private static function podaci(){
-        return [
-            "naziv"=>Request::post("naziv"),
-            "serviser"=>Request::post("serviser"),
-            "bojler"=>Request::post("bojler"),
-            "cijena"=>Request::post("cijena"),
-            "datumservisa"=>Request::post("datumservisa")
-        ];
-    }
+    
 }

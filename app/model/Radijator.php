@@ -14,7 +14,6 @@ class Radijator
                     a.duzina,
                     a.snaga,
                     a.zapremnina,
-                    b.naziv as bojler,
                     count(b.sifra) as ukupno from 
                     radijator a
                     left join bojler b on a.bojler=b.sifra
@@ -25,8 +24,8 @@ class Radijator
                     a.visina,
                     a.duzina,
                     a.snaga,
-                    a.zapremnina,
-                    b.naziv
+                    a.zapremnina
+                    
         ");
         $izraz->execute();
         return $izraz->fetchAll();

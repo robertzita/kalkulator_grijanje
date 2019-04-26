@@ -2,7 +2,11 @@
 
 class ServiserController extends ProtectedController
 {
-    
+    function traziServiser(){
+        echo json_encode(Serviser::traziServiser($_GET["term"]));
+    }
+
+
     function add()
     {
         $kontrola = $this->kontrola();

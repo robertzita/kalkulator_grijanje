@@ -1,0 +1,423 @@
+<form method="post"> <?php include_once "Kalkulator.php" ?>
+<div class="grid-x">
+<div class="row">
+
+        <fieldset class="large-6 columns">
+          <legend>Odaberi izolaciju kuće</legend>
+          <input type="radio" name="op" value="bezizolacije" id="bezizolacije" required><label for="bezizolacije">Bez izolacije</label>
+          <input type="radio" name="op" value="djelomicnoizolirana" id="djelomicnoizolirana"><label for="djelomicnoizolirana">Djelomično izolirana</label>
+          <input type="radio" name="op" value="potpunoizolirana" id="potpunoizolirana"><label for="potpunoizolirana">Potpuno izolirana</label>
+    </div>    
+    </div>  
+    <header class="grid-x" style="background-color:#009090" >
+		<div class="medium-2 columns">Prostor</div>
+		<div class="medium-2 columns">Površina [m2]</div>
+		<div class="medium-2 columns">Visina [m]</div>
+		<div class="medium-2 columns">Potrošnja [W]</div>
+	</header>
+<div class="grid-x" class="dnevna">
+<div class="large-2 columns">
+       
+       <div class="large-1 columns dnevna"></div>
+       <label>Dnevni boravak</label>
+       </div>
+<div class="large-1 columns">
+       
+  <label>
+    <input type="text" placeholder="0,00" name="n1" value="<?php 
+        
+        echo isset($_POST["n1"]) ? $_POST["n1"] : "";?>" />
+  </label>
+  </div>
+  <div class="large-1 columns"></div>
+  <div class="large-1 columns">
+
+  <label>
+    <input type="text" placeholder="0,00" name="n2" value="<?php 
+        
+        echo isset($_POST["n2"]) ? $_POST["n2"] : "";?>" />
+  </label>
+
+  </div>
+  <div class="large-1 columns"></div>
+  <div class="large-1 columns">
+
+  <label>
+    <div class="submit" name="submit" ><?php echo $rezdnevna; ?></div>
+  </label>
+
+  </div>
+  </div>
+
+
+  <div class="grid-x">
+<div class="large-2 columns">
+       
+       <div class="large-1 columns"></div>
+       <label>Kuhinja</label>
+       </div>
+<div class="large-1 columns">
+       
+  <label>
+    <input type="text" placeholder="0,00" name="n3" value="<?php 
+        
+        echo isset($_POST["n3"]) ? $_POST["n3"] : "";?>" />
+  </label>
+  </div>
+  <div class="large-1 columns"></div>
+  <div class="large-1 columns">
+
+  <label>
+    <input type="text" placeholder="0,00" name="n4" value="<?php 
+        
+        echo isset($_POST["n4"]) ? $_POST["n4"] : "";?>" />
+  </label>
+
+  </div>
+  <div class="large-1 columns"></div>
+  <div class="large-1 columns">
+
+  <label>
+    <div class="submit" name="submit" ><?php echo $rezkuhinja; ?></div>
+  </label>
+
+  </div>
+  </div>
+
+
+  <div class="grid-x">
+<div class="large-2 columns">
+       
+       <div class="large-1 columns"></div>
+       <label>Blagavaonica</label>
+       </div>
+<div class="large-1 columns">
+       
+  <label>
+    <input type="text" placeholder="0,00" name="n5" value="<?php 
+        
+        echo isset($_POST["n5"]) ? $_POST["n5"] : "";?>" />
+  </label>
+  </div>
+  <div class="large-1 columns"></div>
+  <div class="large-1 columns">
+
+  <label>
+    <input type="text" placeholder="0,00" name="n6" value="<?php 
+        
+        echo isset($_POST["n6"]) ? $_POST["n6"] : "";?>"/>
+  </label>
+
+  </div>
+  <div class="large-1 columns"></div>
+  <div class="large-1 columns">
+
+  <label>
+    <div class="submit" name="submit" ><?php echo $rezblagavaonica; ?></div>
+  </label>
+
+  </div>
+  </div>
+
+
+  <div class="grid-x">
+<div class="large-2 columns">
+       
+       <div class="large-1 columns"></div>
+       <label>Spavaća soba 1</label>
+       </div>
+<div class="large-1 columns">
+       
+  <label>
+    <input type="text" placeholder="0,00" name="n7" value="<?php 
+        
+        echo isset($_POST["n7"]) ? $_POST["n7"] : "";?>" />
+  </label>
+  </div>
+  <div class="large-1 columns"></div>
+  <div class="large-1 columns">
+
+  <label>
+    <input type="text" placeholder="0,00" name="n8" value="<?php 
+        
+        echo isset($_POST["n8"]) ? $_POST["n8"] : "";?>" />
+  </label>
+
+  </div>
+  <div class="large-1 columns"></div>
+  <div class="large-1 columns">
+
+  <label>
+    <div class="submit" placeholder="0,00" name="submit" ><?php echo $rezspavacasoba1; ?></div>
+  </label>
+
+  </div>
+  </div>
+
+  <div class="grid-x">
+<div class="large-2 columns">
+       
+       <div class="large-1 columns"></div>
+       <label>Spavaća soba 2</label>
+       </div>
+<div class="large-1 columns">
+       
+  <label>
+    <input type="text" placeholder="0,00" name="n9" value="<?php 
+        
+        echo isset($_POST["n9"]) ? $_POST["n9"] : "";?>" />
+  </label>
+  </div>
+  <div class="large-1 columns"></div>
+  <div class="large-1 columns">
+
+  <label>
+    <input type="text" placeholder="0,00" name="n10" value="<?php 
+        
+        echo isset($_POST["n10"]) ? $_POST["n10"] : "";?>" />
+  </label>
+
+  </div>
+  <div class="large-1 columns"></div>
+  <div class="large-1 columns">
+
+  <label>
+    <div class="submit" name="submit" ><?php echo $rezspavacasoba2; ?></div>
+  </label>
+
+  </div>
+  </div>
+  <div class="grid-x">
+<div class="large-2 columns">
+       
+       <div class="large-1 columns"></div>
+       <label>Kupaonica</label>
+       </div>
+<div class="large-1 columns">
+       
+  <label>
+    <input type="text" placeholder="0,00" name="n11" value="<?php 
+        
+        echo isset($_POST["n11"]) ? $_POST["n11"] : "";?>" />
+  </label>
+  </div>
+  <div class="large-1 columns"></div>
+  <div class="large-1 columns">
+
+  <label>
+    <input type="text" placeholder="0,00" name="n12" value="<?php 
+        
+        echo isset($_POST["n12"]) ? $_POST["n12"] : "";?>" />
+  </label>
+
+  </div>
+  <div class="large-1 columns"></div>
+  <div class="large-1 columns">
+
+  <label>
+    <div class="submit"  name="submit" ><?php echo $rezkupaonica; ?></div>
+  </label>
+
+  </div>
+  </div>
+
+  <div class="grid-x">
+<div class="large-2 columns">
+       
+       <div class="large-1 columns"></div>
+       <label>WC</label>
+       </div>
+<div class="large-1 columns">
+       
+  <label>
+    <input type="text" placeholder="0,00" name="n13" value="<?php 
+        
+        echo isset($_POST["n13"]) ? $_POST["n13"] : "";?>" />
+  </label>
+  </div>
+  <div class="large-1 columns"></div>
+  <div class="large-1 columns">
+
+  <label>
+    <input type="text" placeholder="0,00" name="n14" value="<?php 
+        
+        echo isset($_POST["n14"]) ? $_POST["n14"] : "";?>"/>
+  </label>
+
+  </div>
+  <div class="large-1 columns"></div>
+  <div class="large-1 columns">
+
+  <label>
+    <div class="submit" name="submit" ><?php echo $rezwc; ?></div>
+  </label>
+
+  </div>
+  </div>
+
+  <div class="grid-x">
+<div class="large-2 columns">
+       
+       <div class="large-1 columns"></div>
+       <label>Dječja soba 1</label>
+       </div>
+<div class="large-1 columns">
+       
+  <label>
+    <input type="text" placeholder="0,00" name="n15" value="<?php 
+        
+        echo isset($_POST["n15"]) ? $_POST["n15"] : "";?>" />
+  </label>
+  </div>
+  <div class="large-1 columns"></div>
+  <div class="large-1 columns">
+
+  <label>
+    <input type="text" placeholder="0,00" name="n16" value="<?php 
+        
+        echo isset($_POST["n16"]) ? $_POST["n16"] : "";?>" />
+  </label>
+
+  </div>
+  <div class="large-1 columns"></div>
+  <div class="large-1 columns">
+
+  <label>
+    <div class="submit" name="submit" ><?php echo $rezdjecjasoba1; ?></div>
+  </label>
+
+  </div>
+  </div>
+
+  <div class="grid-x">
+<div class="large-2 columns">
+       
+       <div class="large-1 columns"></div>
+       <label>Dječja soba 2</label>
+       </div>
+<div class="large-1 columns">
+       
+  <label>
+    <input type="text" placeholder="0,00" name="n17" value="<?php 
+        
+        echo isset($_POST["n17"]) ? $_POST["n17"] : "";?>" />
+  </label>
+  </div>
+  <div class="large-1 columns"></div>
+  <div class="large-1 columns">
+
+  <label>
+    <input type="text" placeholder="0,00" name="n18" value="<?php 
+        
+        echo isset($_POST["n18"]) ? $_POST["n18"] : "";?>" />
+  </label>
+
+  </div>
+  <div class="large-1 columns"></div>
+  <div class="large-1 columns">
+
+  <label>
+    <div class="submit" name="submit" ><?php echo $rezdjecjasoba2; ?></div>
+  </label>
+
+  </div>
+  </div>
+
+  <div class="grid-x">
+<div class="large-2 columns">
+       
+       <div class="large-1 columns"></div>
+       <label>Hodnik</label>
+       </div>
+<div class="large-1 columns">
+       
+  <label>
+    <input type="text" placeholder="0,00" name="n19" value="<?php 
+        
+        echo isset($_POST["n19"]) ? $_POST["n19"] : "";?>" />
+  </label>
+  </div>
+  <div class="large-1 columns"></div>
+  <div class="large-1 columns">
+
+  <label>
+    <input type="text" placeholder="0,00" name="n20" value="<?php 
+        
+        echo isset($_POST["n20"]) ? $_POST["n20"] : "";?>" />
+  </label>
+
+  </div>
+  <div class="large-1 columns"></div>
+  <div class="large-1 columns">
+
+  <label>
+    <div class="submit" name="submit" ><?php echo $rezhodnik; ?></div>
+  </label>
+
+  </div>
+  </div>
+
+  <div class="grid-x">
+<div class="large-2 columns">
+       
+       <div class="large-1 columns"></div>
+       <label>Stubište</label>
+       </div>
+<div class="large-1 columns">
+       
+  <label>
+    <input type="text" placeholder="0,00" name="n21" value="<?php 
+        
+        echo isset($_POST["n21"]) ? $_POST["n21"] : "";?>" />
+  </label>
+  </div>
+  <div class="large-1 columns"></div>
+  <div class="large-1 columns">
+
+  <label>
+    <input type="text" placeholder="0,00" name="n22" value="<?php 
+        
+        echo isset($_POST["n22"]) ? $_POST["n22"] : "";?>" />
+  </label>
+
+  </div>
+  <div class="large-1 columns"></div>
+  <div class="large-1 columns">
+
+  <label>
+    <div class="submit" name="submit" ><?php echo $rezstubiste; ?></div>
+  </label>
+
+  </div>
+  </div>
+  
+  
+  <div class="grid-x">
+<div class="large-4 columns"></div>
+<div class="large-2 columns">
+       <label>UKUPNA POTROŠNJA [W]</label>
+  </div>
+  <div class="large-1 columns">
+  <label><?php echo $ukupan ?></label>
+  </div>
+  </div>
+  <div class="grid-x">
+<div class="large-4 columns"></div>
+<div class="large-2 columns">
+       <label>UKUPNA POTROŠNJA [kW]</label>
+  </div>
+  <div class="large-1 columns">
+  <label><?php echo $ukupankw ?></label>
+  </div>
+  </div>
+  
+  
+
+  
+  
+  <input class="button expanded" type="submit" name="submit" value="Izračunaj" />
+  
+  
+  
+  
+  </form>

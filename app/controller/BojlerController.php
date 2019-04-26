@@ -28,8 +28,18 @@ class BojlerController extends ProtectedController
 
 
     function kontrola()
-    {
-     
+    {   
+        if(Request::post("naziv")===""){
+            return "Naziv obavezno";
+        }
+
+        if(strlen(Request::post("naziv"))>50){
+            return "Naziv ne smije biti veći od 50 znakova";
+        }
+
+        if(Request::post("korisnik")=="0"){
+            return "Obavezan odabir korisnika";
+        }
         
         return true;
     }

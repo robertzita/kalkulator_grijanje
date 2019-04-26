@@ -1,9 +1,23 @@
+<?php 
+  $head = "<link rel=\"stylesheet\" href=\"//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css\">";
+
+ $js="
+ <script src=\"https://code.jquery.com/ui/1.12.1/jquery-ui.js\"></script>
+ <script>
+ var putanja=\"" . APP::config("url") .  "\";
+ let sifraServis = " . Request::post("sifra") .";
+ </script>
+ <script src=\"" . APP::config("url") . "public/js/servisi/edit.js\"></script>";
+?>
+
+
+
 <form class="log-in-form" method="post" 
 action="<?php echo App::config("url") ?>servis/edit/<?php echo Request::post("sifra") ?>">
 
 
 <div class="grid-x">
-<div class="large-12 columns">
+<div class="large-4 columns">
         
   
 
@@ -12,24 +26,7 @@ action="<?php echo App::config("url") ?>servis/edit/<?php echo Request::post("si
     value="<?php echo Request::post("naziv") ?>" />
   </label>
 
-  <label for="serviser">Serviser</label>
-  <select name="serviser" id="serviser">
-  <option value="0">Odaberi servisera</option>
-
-  <?php foreach(Serviser::read(1) as $serviser): ?>
-
-    
-
-    <option 
-
-      <?php if(Request::post("serviser")==$serviser->sifra):?>
-      selected="selected" 
-      <?php endif;?>
-
-      value="<?php echo $serviser->sifra ?>"><?php echo $serviser->naziv ?></option>
-
-  <?php endforeach; ?>
-  </select>
+  
   <label for="bojler">Kondenzacijski uređaj</label>
   <select name="bojler" id="bojler">
   <option value="0">Odaberi kondenzacijski uređaj</option>
@@ -67,6 +64,33 @@ action="<?php echo App::config("url") ?>servis/edit/<?php echo Request::post("si
 
 
   </div>
+  <div class="large-1 columns">
+  </div>
+  <div class="large-7 columns" style="overflow: auto; max-height: 400px;">
+    <div class="callout">
+      traži servisera
+      <input type="text" id="uvjet">
+
+
+        Serviseri
+        <table>
+          <thead>
+            <tr>
+              <th>Naziv</th>
+              <th>Akcija</th>
+            </tr>
+          </thead>
+          <tbody>
+          <?php foreach(Serviser::readServisers(Request::post("sifra")) as $s): ?>
+            <tr>
+              <td><?php echo $s->serviser ?></td>
+              <td> <a class="obrisi" id="s_<?php echo $s->sifra ?>" href="#">Obriši</a> </td>
+            </tr>
+          <?php endforeach;?>
+          </tbody>
+        </table>
+        </div>
+    </div>      
 </div>
   
  <div class="grid-x">
