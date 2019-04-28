@@ -30,6 +30,14 @@ class RadijatorController extends ProtectedController
         
         function kontrola()
         {
+            
+            if(Request::post("naziv")===""){
+                return "Naziv obavezan";
+            }
+            if(intval(Request::post("snaga"))<=0){
+                return "Snaga radijatora nije broj ili je manje od nula";
+            }
+
             if(Request::post("bojler")=="0"){
                 return "Obavezan odabir kondenzacijskog uređaja";
             }

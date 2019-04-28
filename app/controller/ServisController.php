@@ -58,6 +58,9 @@ class ServisController extends ProtectedController
         if(Request::post("bojler")=="0"){
             return "Obavezan odabir kondenzacijskog uređaja";
         }
+        if(Request::post("serviser")===""){
+            return "Serviser obavezan";
+        }
 
         return true;
     }
