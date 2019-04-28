@@ -14,11 +14,9 @@ class Korisnik
             a.postanskibroj,
             a.email,
             a.brojtelefona,
-            b.naziv as serviser,
-            count(c.korisnik) as ukupno 
+            count(b.korisnik) as ukupno 
             from korisnik a
-            left join serviser b on a.serviser =b.sifra
-            left join bojler c on a.sifra=c.korisnik
+            left join bojler b on a.sifra=b.korisnik
             group by
             a.sifra,
             a.ime,
@@ -26,8 +24,8 @@ class Korisnik
             a.adresa,
             a.postanskibroj,
             a.email,
-            a.brojtelefona,
-            b.naziv
+            a.brojtelefona
+            
         
         
         ");
@@ -46,8 +44,8 @@ class Korisnik
     public static function add()
     {
         $db = Db::getInstance();
-        $izraz = $db->prepare("insert into korisnik(ime,prezime,adresa,postanskibroj,email,brojtelefona,serviser)
-        values ('','','','',null,null,null)");
+        $izraz = $db->prepare("insert into korisnik(ime,prezime,adresa,postanskibroj,email,brojtelefona)
+        values ('','','','',null,null)");
         $izraz->execute();
         return $db->lastInsertId();
     }
@@ -62,8 +60,7 @@ class Korisnik
         adresa=:adresa,
         postanskibroj=:postanskibroj,
         email=:email,
-        brojtelefona=:brojtelefona,
-        serviser=:serviser
+        brojtelefona=:brojtelefona
         where sifra=:sifra");
         $podaci = self::podaci();
         $podaci["sifra"]=$id;
@@ -88,8 +85,7 @@ class Korisnik
             "adresa"=>Request::post("adresa"),
             "postanskibroj"=>Request::post("postanskibroj"),
             "email"=>Request::post("email"),
-            "brojtelefona"=>Request::post("brojtelefona"),
-            "serviser"=>Request::post("serviser")
+            "brojtelefona"=>Request::post("brojtelefona")
         ];
     }
 

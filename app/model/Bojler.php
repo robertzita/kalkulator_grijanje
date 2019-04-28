@@ -13,7 +13,7 @@ class Bojler
                                       count(c.bojler) as ukupno
                                       from bojler a 
                                       left join korisnik b on a.korisnik=b.sifra
-                                      left join servis c on a.sifra=c.sifra
+                                      left join radijator c on a.sifra=c.sifra
                                       group by
                                       a.sifra,
                                       a.naziv,

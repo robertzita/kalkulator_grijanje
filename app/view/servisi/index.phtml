@@ -19,7 +19,11 @@
             <td><?php echo $servis->serviser ?></td>
             <td><?php echo $servis->bojler ?></td>
             <td><?php echo $servis->cijena ?> kn</td>
-            <td><?php echo $servis->datumservisa ?> </td>
+            <td><?php if($servis->datumservisa!=null){
+                echo date("d. m. Y.",strtotime($servis->datumservisa));
+              }else{
+                  echo "Nije definirano";
+              } ?> </td>
             <td> 
                 <a href="<?php echo App::config("url") ?>servis/prepareedit/<?php echo $servis->sifra ?>">
                     <i class="fas fa-edit fa-2x"></i>

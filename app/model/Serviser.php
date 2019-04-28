@@ -4,7 +4,7 @@ class Serviser
 {
     public static function read($stranica=1)
     {
-        $poStranici=10;
+        $poStranici=12;
         $db = Db::getInstance();
         $izraz = $db->prepare("
         

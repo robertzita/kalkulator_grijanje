@@ -7,24 +7,15 @@ class Radijator
         $db = Db::getInstance();
         $izraz = $db->prepare("
                     select 
-                    a.sifra,
-                    a.naziv,
-                    a.tipradijatora,
-                    a.visina,
-                    a.duzina,
-                    a.snaga,
-                    a.zapremnina,
-                    count(b.sifra) as ukupno from 
-                    radijator a
-                    left join bojler b on a.bojler=b.sifra
-                    group by 
-                    a.sifra,
-                    a.naziv,
-                    a.tipradijatora,
-                    a.visina,
-                    a.duzina,
-                    a.snaga,
-                    a.zapremnina
+                    sifra,
+                    naziv,
+                    tipradijatora,
+                    visina,
+                    duzina,
+                    snaga,
+                    zapremnina from 
+                    radijator 
+                    
                     
         ");
         $izraz->execute();

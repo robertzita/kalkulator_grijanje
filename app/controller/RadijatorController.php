@@ -30,6 +30,9 @@ class RadijatorController extends ProtectedController
         
         function kontrola()
         {
+            if(Request::post("bojler")=="0"){
+                return "Obavezan odabir kondenzacijskog uređaja";
+            }
             return true;
         }
 

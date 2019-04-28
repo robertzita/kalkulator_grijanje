@@ -52,17 +52,11 @@ action="<?php echo App::config("url") ?>servis/edit/<?php echo Request::post("si
 
   <label>Datum servisa
     <input type="date" name="datumservisa" 
-    value="<?php echo date("Y-m-d",strtotime(Request::post("datumservisa"))) ?>" />
+    value="<?php if(Request::post("datumservisa")!=null){
+      echo date("Y-m-d",strtotime(Request::post("datumservisa")));
+    }
+     ?>"/>
   </label>
-
-  
-
-  
-
-  
-
-
-
   </div>
   <div class="large-1 columns">
   </div>
@@ -70,25 +64,10 @@ action="<?php echo App::config("url") ?>servis/edit/<?php echo Request::post("si
     <div class="callout">
       traži servisera
       <input type="text" id="uvjet">
-
-
-        Serviseri
-        <table>
-          <thead>
-            <tr>
-              <th>Naziv</th>
-              <th>Akcija</th>
-            </tr>
-          </thead>
-          <tbody>
-          <?php foreach(Serviser::readServisers(Request::post("sifra")) as $s): ?>
-            <tr>
-              <td><?php echo $s->serviser ?></td>
-              <td> <a class="obrisi" id="s_<?php echo $s->sifra ?>" href="#">Obriši</a> </td>
-            </tr>
-          <?php endforeach;?>
-          </tbody>
-        </table>
+      <?php foreach(Serviser::readServisers(Request::post("serviser")) as $s): ?> 
+    <span id="imeserviser" >Trenutni serviser: <?php echo $s->naziv, ", " , $s->adresa , " " , $s->postanskibroj ?></span>
+    <?php endforeach;?>
+    <input type="hidden" name="serviser" id="serviser" />
         </div>
     </div>      
 </div>

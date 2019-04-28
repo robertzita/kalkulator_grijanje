@@ -21,8 +21,7 @@ prezime varchar (100) not null,
 adresa varchar (100) not null,
 postanskibroj int not null,
 email varchar (200),
-brojtelefona varchar (50),
-serviser int 
+brojtelefona varchar (50)
 )engine=innodb;
 create table radijator (
 sifra int not null primary key auto_increment,
@@ -58,7 +57,6 @@ datumservisa datetime not null
 alter table radijator add foreign key (bojler) references bojler (sifra);
 alter table servis add foreign key (serviser) references serviser (sifra);
 alter table servis add foreign key (bojler) references bojler (sifra);
-alter table korisnik add foreign key (serviser) references serviser (sifra);
 alter table bojler add foreign key (korisnik) references korisnik (sifra);
 
 insert into serviser (sifra,naziv,adresa,postanskibroj,brojtelefona,email) values
@@ -295,11 +293,11 @@ insert into serviser (sifra,naziv,adresa,postanskibroj,brojtelefona,email) value
 (null,'Zagrebgradnja','5. Ravnice 6, Zagreb',10000,'01/2351-700','zdenko.severin@zagrebgradnja.hr'),
 (null,'Zeko zna','Frana Alfirevića 61, Zagreb',10000,'01/2304-555','info@zeko-zna.hr');
 
-insert into korisnik(sifra,ime,prezime,adresa,postanskibroj,email,brojtelefona,serviser) values
-(null,'Robert','Zita','Hrvatskih branitelja 6, Valpovo',31550,'zitaa91@gmail.com','0915654643',111),
-(null,'Marko','Palić','Buconjićeva 55, Zagreb',10000,'mpalic@gmail.com','0988453643',188),
-(null,'Valentina','Konić','H.V. Hrvatinića 5, Vinkovci',32100,'konicv91@gmail.com','099325987',120),
-(null,'Tihana','Erić','Mala Jelsa 18, Karlovac',47000,'erictihana@gmail.com','092479864',46);
+insert into korisnik(sifra,ime,prezime,adresa,postanskibroj,email,brojtelefona) values
+(null,'Robert','Zita','Hrvatskih branitelja 6, Valpovo',31550,'zitaa91@gmail.com','0915654643'),
+(null,'Marko','Palić','Buconjićeva 55, Zagreb',10000,'mpalic@gmail.com','0988453643'),
+(null,'Valentina','Konić','H.V. Hrvatinića 5, Vinkovci',32100,'konicv91@gmail.com','099325987'),
+(null,'Tihana','Erić','Mala Jelsa 18, Karlovac',47000,'erictihana@gmail.com','092479864');
 
 insert into bojler(sifra,naziv,ucinaknagrijanju,ucinaknatoplojvodi,slika,korisnik) values
 (null,'VAILLANT PLIN KOTAO VUW 116/5-3',11,23,'D:/VUW INT 116–246.jpg',1),

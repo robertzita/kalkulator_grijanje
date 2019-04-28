@@ -37,23 +37,6 @@ action="<?php echo App::config("url") ?>korisnik/edit/<?php echo Request::post("
     value="<?php echo Request::post("brojtelefona") ?>" />
   </label>
   
-  <label for="serviser">Serviser</label>
-  <select name="serviser" id="serviser">
-  <option value="0">Odaberi servisera</option>
-
-  <?php foreach(Serviser::read(1) as $serviser): ?>
-
-    
-
-    <option 
-
-      <?php if(Request::post("serviser")==$serviser->sifra):?>
-      selected="selected" 
-      <?php endif;?>
-
-      value="<?php echo $serviser->sifra ?>"><?php echo $serviser->naziv ?></option>
-
-  <?php endforeach; ?>
 
   </select>
 
